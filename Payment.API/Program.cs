@@ -1,10 +1,22 @@
+using MassTransit;
+using Payment.API.Consumers;
+using Shared;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddMassTransit(configure =>
+{
+    configure.AddConsumer<StockReservedEventConsumer>();
+    configure.UsingRabbitMq((context, _cfg) =>
+    {
+        _cfg.Host(builder.Configuration["RabbitMQ"]);
+        _cfg.ReceiveEndpoint(RabbitMQSettings.Payment_StockReservedEventName, e=> e.ConfigureConsumer<StockReservedEventConsumer>(context));
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -16,29 +28,4 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
-
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

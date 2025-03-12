@@ -44,3 +44,6 @@
 /Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Stock.API/obj/Debug/net8.0/Stock.API.pdb
 /Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Stock.API/obj/Debug/net8.0/Stock.API.genruntimeconfig.cache
 /Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Stock.API/obj/Debug/net8.0/ref/Stock.API.dll
+/Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Stock.API/bin/Debug/net8.0/Shared.dll
+/Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Stock.API/bin/Debug/net8.0/Shared.pdb
+/Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Stock.API/obj/Debug/net8.0/Stock.API.sourcelink.json

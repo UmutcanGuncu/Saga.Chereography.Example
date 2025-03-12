@@ -9,3 +9,4 @@
 /Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Shared/obj/Debug/net8.0/refint/Shared.dll
 /Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Shared/obj/Debug/net8.0/Shared.pdb
 /Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Shared/obj/Debug/net8.0/ref/Shared.dll
+/Users/umutcanguncu/RiderProjects/MicroserviceProject/Saga.Chereography.Example/Shared/obj/Debug/net8.0/Shared.sourcelink.json
